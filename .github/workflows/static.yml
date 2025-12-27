@@ -1,0 +1,87 @@
+# Simple workflow for deploying static content to GitHub Pages
+name: Deploy static content to Pages
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["main"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Single deploy job since we're just deploying
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload entire repository
+          path: '.'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+            - nome: Configurar Java JDK
+  utiliza: actions/setup-java@v5.1.0
+  com:
+    # A versão do Java a ser configurada. Aceita uma versão completa ou semver do Java. Veja exemplos de sintaxe suportada no arquivo README.
+    java-version: # opcional
+    # O caminho para o arquivo `.java-version`. Veja exemplos da sintaxe suportada no arquivo README.
+    java-version-file: # opcional
+    # Distribuição Java. Consulte a lista de distribuições suportadas no arquivo README.
+    distribuição:
+    # O tipo de pacote (jdk, jre, jdk+fx, jre+fx)
+    java-package: # opcional, o padrão é jdk
+    # A arquitetura do pacote (por padrão, utiliza a arquitetura do executor de ações)
+    arquitetura: # opcional
+    # Caminho para onde o JDK compactado está localizado
+    jdkFile: # opcional
+    # Defina esta opção se desejar que a ação verifique a versão mais recente disponível que atenda à especificação de versão.
+    verificar-mais-recente: # opcional
+    # ID do repositório distributionManagement no arquivo pom.xml. O padrão é `github`
+    server-id: # opcional, o padrão é github
+    # Nome da variável de ambiente para o nome de usuário usado na autenticação do repositório Apache Maven. O padrão é $GITHUB_ACTOR
+    nome-de-usuário-do-servidor: # opcional, o padrão é GITHUB_ACTOR
+    # Nome da variável de ambiente para senha ou token de autenticação no repositório Apache Maven. O padrão é $GITHUB_TOKEN
+    senha-do-servidor: # opcional, o padrão é GITHUB_TOKEN
+    # Caminho para onde o arquivo settings.xml será gravado. O padrão é ~/.m2.
+    caminho-de-configurações: # opcional
+    # Sobrescrever o arquivo settings.xml se ele já existir. O padrão é "true".
+    sobrescrever-configurações: # opcional, o padrão é verdadeiro
+    # Chave privada GPG a ser importada. O padrão é uma string vazia.
+    chave-privada-gpg: # opcional
+    # Nome da variável de ambiente para a senha da chave privada GPG. O padrão é $GPG_PASSPHRASE.
+    senha-gpg: # opcional
+    # Nome da plataforma de compilação para armazenar em cache as dependências. Pode ser "maven", "gradle" ou "sbt".
+    cache: # opcional
+    # O caminho para um arquivo de dependência: pom.xml, build.gradle, build.sbt, etc. Esta opção pode ser usada com a opção `cache`. Se esta opção for omitida, a ação buscará o arquivo de dependência em todo o repositório. Esta opção aceita curingas e uma lista de nomes de arquivos para armazenar em cache várias dependências.
+    caminho-dependência-de-cache: # opcional
+    # Solução alternativa para passar o status da tarefa para a etapa de publicação da tarefa. Esta variável não se destina à configuração manual.
+    status-do-trabalho: # opcional, o padrão é ${{ status-do-trabalho }}
+    # O token usado para autenticação ao buscar manifestos de versão hospedados no github.com, como o Microsoft Build do OpenJDK. Ao executar esta ação no github.com, o valor padrão é suficiente. Ao executar no GHES, você pode fornecer um token de acesso pessoal para o github.com caso esteja enfrentando limitação de taxa.
+    token: # opcional, o padrão é ${{ github.server_url == 'https://github.com' && github.token || '' }}
+    # Nome do ID da cadeia de ferramentas Maven caso o nome padrão "${distribution}_${java-version}" não seja desejado. Consulte exemplos de sintaxe suportada no arquivo de Uso Avançado.
+    mvn-toolchain-id: # opcional
+    # Nome do fornecedor do conjunto de ferramentas Maven, caso o nome padrão "${distribution}" não seja desejado. Consulte exemplos de sintaxe suportada no arquivo de Uso Avançado.
+    mvn-toolchain-vendor: # opcional
+          
