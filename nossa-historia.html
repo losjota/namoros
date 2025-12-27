@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossa História - Nosso Amor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">💕 Nosso Amor</a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="nossa-historia.html" class="active">Nossa História</a></li>
+                <li><a href="galeria.html">Galeria</a></li>
+                <li><a href="musicas.html">Músicas</a></li>
+                <li><a href="textos.html">Textos & Cartas</a></li>
+                <li><a href="pagamento.html">Acesso</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="history-container">
+        <h1 class="page-title">Nossa História</h1>
+        <p class="page-subtitle">Uma linha do tempo dos nossos momentos mais especiais</p>
+
+        <div class="timeline-container">
+            <div class="timeline-line"></div>
+            
+            <div class="timeline-item" data-event="primeira-conversa">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <div class="event-header">
+                        <h2>Primeira Conversa</h2>
+                        <input type="date" class="event-date" id="date-primeira-conversa">
+                    </div>
+                    <div class="event-photo-container">
+                        <input type="file" accept="image/*" class="photo-input" id="photo-primeira-conversa" onchange="previewImage(this, 'preview-primeira-conversa')">
+                        <img id="preview-primeira-conversa" class="event-photo" src="" alt="" style="display: none;">
+                        <label for="photo-primeira-conversa" class="photo-label">📷 Adicionar Foto</label>
+                    </div>
+                    <textarea class="event-text" id="text-primeira-conversa" placeholder="Conte como foi a primeira conversa..."></textarea>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-event="primeiro-encontro">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <div class="event-header">
+                        <h2>Primeiro Encontro</h2>
+                        <input type="date" class="event-date" id="date-primeiro-encontro">
+                    </div>
+                    <div class="event-photo-container">
+                        <input type="file" accept="image/*" class="photo-input" id="photo-primeiro-encontro" onchange="previewImage(this, 'preview-primeiro-encontro')">
+                        <img id="preview-primeiro-encontro" class="event-photo" src="" alt="" style="display: none;">
+                        <label for="photo-primeiro-encontro" class="photo-label">📷 Adicionar Foto</label>
+                    </div>
+                    <textarea class="event-text" id="text-primeiro-encontro" placeholder="Descreva o primeiro encontro..."></textarea>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-event="pedido-namoro">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <div class="event-header">
+                        <h2>Pedido de Namoro</h2>
+                        <input type="date" class="event-date" id="date-pedido-namoro">
+                    </div>
+                    <div class="event-photo-container">
+                        <input type="file" accept="image/*" class="photo-input" id="photo-pedido-namoro" onchange="previewImage(this, 'preview-pedido-namoro')">
+                        <img id="preview-pedido-namoro" class="event-photo" src="" alt="" style="display: none;">
+                        <label for="photo-pedido-namoro" class="photo-label">📷 Adicionar Foto</label>
+                    </div>
+                    <textarea class="event-text" id="text-pedido-namoro" placeholder="Como foi o pedido de namoro?"></textarea>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-event="pedido-casamento">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <div class="event-header">
+                        <h2>Pedido de Casamento</h2>
+                        <input type="date" class="event-date" id="date-pedido-casamento">
+                    </div>
+                    <div class="event-photo-container">
+                        <input type="file" accept="image/*" class="photo-input" id="photo-pedido-casamento" onchange="previewImage(this, 'preview-pedido-casamento')">
+                        <img id="preview-pedido-casamento" class="event-photo" src="" alt="" style="display: none;">
+                        <label for="photo-pedido-casamento" class="photo-label">📷 Adicionar Foto</label>
+                    </div>
+                    <textarea class="event-text" id="text-pedido-casamento" placeholder="Conte sobre o pedido de casamento..."></textarea>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-event="casamento">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <div class="event-header">
+                        <h2>Casamento</h2>
+                        <input type="date" class="event-date" id="date-casamento">
+                    </div>
+                    <div class="event-photo-container">
+                        <input type="file" accept="image/*" class="photo-input" id="photo-casamento" onchange="previewImage(this, 'preview-casamento')" multiple>
+                        <div id="preview-casamento" class="event-photos-grid"></div>
+                        <label for="photo-casamento" class="photo-label">📷 Adicionar Fotos</label>
+                    </div>
+                    <textarea class="event-text" id="text-casamento" placeholder="Descreva o dia do casamento..."></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="save-container">
+            <button class="btn-primary" onclick="saveHistory()">💾 Salvar História</button>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="history.js"></script>
+</body>
+</html>
+

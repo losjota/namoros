@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acesso - Nosso Amor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">💕 Nosso Amor</a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="nossa-historia.html">Nossa História</a></li>
+                <li><a href="galeria.html">Galeria</a></li>
+                <li><a href="musicas.html">Músicas</a></li>
+                <li><a href="textos.html">Textos & Cartas</a></li>
+                <li><a href="pagamento.html" class="active">Acesso</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="payment-container">
+        <h1 class="page-title">Escolha seu Plano</h1>
+        <p class="page-subtitle">Garanta acesso ao seu site de amor</p>
+
+        <div class="payment-options">
+            <div class="payment-card featured">
+                <div class="payment-badge">⭐ Mais Popular</div>
+                <h2>Acesso Vitalício</h2>
+                <div class="payment-price">
+                    <span class="price-amount" id="lifetimePrice">R$ 49,90</span>
+                    <span class="price-period">pagamento único</span>
+                </div>
+                <ul class="payment-features">
+                    <li>✅ Acesso permanente ao site</li>
+                    <li>✅ Todas as fotos ilimitadas</li>
+                    <li>✅ Músicas e textos ilimitados</li>
+                    <li>✅ Atualizações futuras incluídas</li>
+                    <li>✅ Suporte prioritário</li>
+                    <li>✅ Backup automático dos dados</li>
+                    <li>✅ Personalização completa</li>
+                </ul>
+                <button class="btn-primary btn-large" onclick="processPayment('lifetime')">Escolher Vitalício</button>
+            </div>
+
+            <div class="payment-card">
+                <h2>Acesso por 1 Dia</h2>
+                <div class="payment-price">
+                    <span class="price-amount" id="dailyPrice">R$ 19,90</span>
+                    <span class="price-period">24 horas de acesso</span>
+                </div>
+                <ul class="payment-features">
+                    <li>✅ Acesso completo por 24 horas</li>
+                    <li>✅ Ideal para surpresas românticas</li>
+                    <li>✅ Perfeito para pedidos especiais</li>
+                    <li>✅ Todas as funcionalidades ativas</li>
+                    <li>✅ Acesso imediato após pagamento</li>
+                </ul>
+                <p class="payment-note">💡 Perfeito para: pedidos de namoro, pedidos de casamento, aniversários e datas especiais</p>
+                <button class="btn-primary btn-large" onclick="processPayment('daily')">Escolher 1 Dia</button>
+            </div>
+        </div>
+
+        <div class="payment-info">
+            <h3>Formas de Pagamento</h3>
+            <div class="payment-methods">
+                <div class="payment-method">💳 Cartão de Crédito</div>
+                <div class="payment-method">🏦 PIX</div>
+                <div class="payment-method">📱 Boleto Bancário</div>
+            </div>
+            <p style="margin-top: 1.5rem; font-size: 0.9rem; color: #666; text-align: center;">
+                ⚠️ Para processar pagamentos com cartão e boleto, configure sua Public Key do Mercado Pago no arquivo payment.js
+            </p>
+        </div>
+
+        <!-- Modal de Pagamento -->
+        <div id="paymentModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closePaymentModal()">&times;</span>
+                <h2>Finalizar Pagamento</h2>
+                <form id="paymentForm">
+                    <div class="form-group">
+                        <label for="paymentType">Tipo de Acesso:</label>
+                        <input type="text" id="paymentType" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="paymentAmount">Valor:</label>
+                        <input type="text" id="paymentAmount" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="paymentMethod">Forma de Pagamento:</label>
+                        <select id="paymentMethod" required>
+                            <option value="">Selecione...</option>
+                            <option value="credit">Cartão de Crédito</option>
+                            <option value="pix">PIX</option>
+                            <option value="boleto">Boleto Bancário</option>
+                        </select>
+                    </div>
+                    <div id="paymentDetails"></div>
+                    <button type="submit" class="btn-primary">Confirmar Pagamento</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Mercado Pago SDK -->
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+    <script src="script.js"></script>
+    <script src="payment.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Músicas - Nosso Amor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">💕 Nosso Amor</a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="nossa-historia.html">Nossa História</a></li>
+                <li><a href="galeria.html">Galeria</a></li>
+                <li><a href="musicas.html" class="active">Músicas</a></li>
+                <li><a href="textos.html">Textos & Cartas</a></li>
+                <li><a href="pagamento.html">Acesso</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="music-container">
+        <h1 class="page-title">Nossa Trilha Sonora</h1>
+        <p class="page-subtitle">As músicas que marcaram nossa história</p>
+
+        <div class="add-music-section">
+            <button class="btn-primary" onclick="openAddMusicModal()">🎵 Adicionar Música</button>
+        </div>
+
+        <div class="music-list" id="musicList">
+            <!-- Músicas serão adicionadas dinamicamente aqui -->
+        </div>
+
+        <!-- Modal para adicionar música -->
+        <div id="addMusicModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeAddMusicModal()">&times;</span>
+                <h2>Adicionar Música</h2>
+                <form id="addMusicForm">
+                    <div class="form-group">
+                        <label for="musicTitle">Título da Música:</label>
+                        <input type="text" id="musicTitle" placeholder="Ex: Perfect - Ed Sheeran" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="musicArtist">Artista:</label>
+                        <input type="text" id="musicArtist" placeholder="Nome do artista" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="musicUrl">URL do YouTube ou Link:</label>
+                        <input type="text" id="musicUrl" placeholder="Cole o link do YouTube ou arquivo de áudio">
+                    </div>
+                    <div class="form-group">
+                        <label for="musicFile">Ou faça upload de arquivo de áudio:</label>
+                        <input type="file" id="musicFile" accept="audio/*">
+                    </div>
+                    <div class="form-group">
+                        <label for="musicMeaning">Significado para nós:</label>
+                        <textarea id="musicMeaning" rows="4" placeholder="Por que esta música é especial para nós?"></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Adicionar</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="music.js"></script>
+</body>
+</html>
+

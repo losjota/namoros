@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Textos & Cartas - Nosso Amor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">💕 Nosso Amor</a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="nossa-historia.html">Nossa História</a></li>
+                <li><a href="galeria.html">Galeria</a></li>
+                <li><a href="musicas.html">Músicas</a></li>
+                <li><a href="textos.html" class="active">Textos & Cartas</a></li>
+                <li><a href="pagamento.html">Acesso</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="texts-container">
+        <h1 class="page-title">Textos & Cartas</h1>
+        <p class="page-subtitle">Nosso diário de amor</p>
+
+        <div class="text-categories">
+            <button class="category-btn active" onclick="filterTexts('all', this)">Todas</button>
+            <button class="category-btn" onclick="filterTexts('romantic', this)">Românticas</button>
+            <button class="category-btn" onclick="filterTexts('promise', this)">Promessas</button>
+            <button class="category-btn" onclick="filterTexts('declaration', this)">Declarações</button>
+            <button class="category-btn" onclick="filterTexts('future', this)">Cartas para o Futuro</button>
+            <button class="category-btn" onclick="filterTexts('reflection', this)">Reflexões</button>
+        </div>
+
+        <div class="add-text-section">
+            <button class="btn-primary" onclick="openAddTextModal()">✍️ Escrever Texto</button>
+        </div>
+
+        <div class="texts-list" id="textsList">
+            <!-- Textos serão adicionados dinamicamente aqui -->
+        </div>
+
+        <!-- Modal para adicionar/editar texto -->
+        <div id="addTextModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeAddTextModal()">&times;</span>
+                <h2 id="modalTextTitle">Escrever Texto</h2>
+                <form id="addTextForm">
+                    <div class="form-group">
+                        <label for="textTitle">Título:</label>
+                        <input type="text" id="textTitle" placeholder="Dê um título ao seu texto" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="textCategory">Categoria:</label>
+                        <select id="textCategory" required>
+                            <option value="romantic">Romântica</option>
+                            <option value="promise">Promessa</option>
+                            <option value="declaration">Declaração</option>
+                            <option value="future">Carta para o Futuro</option>
+                            <option value="reflection">Reflexão</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="textContent">Conteúdo:</label>
+                        <textarea id="textContent" rows="10" placeholder="Escreva seu texto aqui..." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="textDate">Data:</label>
+                        <input type="date" id="textDate">
+                    </div>
+                    <button type="submit" class="btn-primary">Salvar</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="texts.js"></script>
+</body>
+</html>
+

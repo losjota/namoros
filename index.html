@@ -1,13 +1,86 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Namoros</title>
+    <title>Nosso Amor - Página Inicial</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Bem-vindo ao Namoros</h1>
-    <p>Um site para namoros.</p>
-    <script src="music.js"></script>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">💕 Nosso Amor</a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Início</a></li>
+                <li><a href="nossa-historia.html">Nossa História</a></li>
+                <li><a href="galeria.html">Galeria</a></li>
+                <li><a href="musicas.html">Músicas</a></li>
+                <li><a href="textos.html">Textos & Cartas</a></li>
+                <li><a href="pagamento.html">Acesso</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="home-container">
+        <div class="hero-section">
+            <h1 class="couple-name" id="coupleName">Nome do Casal</h1>
+            <p class="romantic-quote" id="romanticQuote">"Uma frase marcante sobre o início do nosso relacionamento..."</p>
+            
+            <div class="counter-container">
+                <div class="counter-wrapper">
+                    <div class="counter-item">
+                        <div class="counter-number" id="years">0</div>
+                        <div class="counter-label">Anos</div>
+                    </div>
+                    <div class="counter-item">
+                        <div class="counter-number" id="months">0</div>
+                        <div class="counter-label">Meses</div>
+                    </div>
+                    <div class="counter-item">
+                        <div class="counter-number" id="days">0</div>
+                        <div class="counter-label">Dias</div>
+                    </div>
+                </div>
+                <p class="relationship-type" id="relationshipType">juntos</p>
+            </div>
+        </div>
+
+        <div class="settings-panel">
+            <button class="settings-btn" onclick="openSettings()">⚙️ Configurações</button>
+        </div>
+    </main>
+
+    <!-- Modal de Configurações -->
+    <div id="settingsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeSettings()">&times;</span>
+            <h2>Configurações</h2>
+            <form id="settingsForm">
+                <div class="form-group">
+                    <label for="coupleNameInput">Nome do Casal:</label>
+                    <input type="text" id="coupleNameInput" placeholder="Ex: Ana & João">
+                </div>
+                <div class="form-group">
+                    <label for="romanticQuoteInput">Frase Marcante:</label>
+                    <textarea id="romanticQuoteInput" rows="3" placeholder="Escreva uma frase especial sobre o início do relacionamento..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="startDateInput">Data de Início:</label>
+                    <input type="date" id="startDateInput">
+                </div>
+                <div class="form-group">
+                    <label for="relationshipTypeSelect">Tipo de Relacionamento:</label>
+                    <select id="relationshipTypeSelect">
+                        <option value="namoro">Namoro</option>
+                        <option value="casamento">Casamento</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-primary">Salvar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
+

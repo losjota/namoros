@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria - Nosso Amor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">💕 Nosso Amor</a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="nossa-historia.html">Nossa História</a></li>
+                <li><a href="galeria.html" class="active">Galeria</a></li>
+                <li><a href="musicas.html">Músicas</a></li>
+                <li><a href="textos.html">Textos & Cartas</a></li>
+                <li><a href="pagamento.html">Acesso</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="gallery-container">
+        <h1 class="page-title">Nossa Galeria</h1>
+        <p class="page-subtitle">Momentos especiais capturados em fotos</p>
+
+        <div class="upload-section">
+            <input type="file" id="galleryUpload" accept="image/*" multiple onchange="handleGalleryUpload(event)">
+            <label for="galleryUpload" class="upload-btn">📸 Adicionar Fotos</label>
+        </div>
+
+        <div class="gallery-grid" id="galleryGrid">
+            <!-- Fotos serão adicionadas dinamicamente aqui -->
+        </div>
+
+        <!-- Modal para visualização de foto -->
+        <div id="photoModal" class="modal">
+            <span class="close" onclick="closePhotoModal()">&times;</span>
+            <div class="modal-photo-container">
+                <img id="modalPhoto" src="" alt="">
+                <div class="photo-caption-container">
+                    <textarea id="photoCaption" placeholder="Adicione uma legenda especial para esta foto..." onchange="updatePhotoCaption()"></textarea>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="gallery.js"></script>
+</body>
+</html>
+
